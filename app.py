@@ -9,7 +9,7 @@ import datetime
 from user_calls import *
 
 # establish database
-client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+client = pymongo.MongoClient('mongodb://heroku_01zv0lqq:c7tgn1ik3i8va9ql5kpmttisve@ds115340.mlab.com:15340/heroku_01zv0lqq')
 
 # database of user accounts
 userdb = client.accounttesting.users
