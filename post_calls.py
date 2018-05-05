@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, json, redirect, url_for, Response
-from src.app import app, userdb, postdb
+from .app import app, userdb, postdb
 from datetime import datetime
 
 @app.route("/post", methods=["POST"])
