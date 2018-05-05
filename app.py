@@ -5,13 +5,12 @@ from flask import Flask, render_template, request, session, json, redirect, url_
 import pymongo
 import bson
 import datetime
+from boto.s3.connection import S3Connection
 
 from user_calls import *
 
 # establish database
-#MONGO_URL = os.environ.get('MONGO_URI')
-print(app.config['MONGO_URI'])
-client = pymongo.MongoClient(app.config['MONGO_URI'])
+client = pymongo.MongoClient(os.environ['MONGO_URI'])
 
 # database of user accounts
 userdb = client.accounttesting.users
