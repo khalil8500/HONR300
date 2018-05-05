@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, json, redirect, url_for, Response
-import app, userdb
+from main import app, userdb
 
 
 def validate_username(username):
