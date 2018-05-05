@@ -9,8 +9,9 @@ import datetime
 from user_calls import *
 
 # establish database
-MONGO_URL = os.environ.get('MONGO_URI')
-client = pymongo.MongoClient(MONGO_URL)
+#MONGO_URL = os.environ.get('MONGO_URI')
+print(app.config['MONGO_URI'])
+client = pymongo.MongoClient(app.config['MONGO_URI'])
 
 # database of user accounts
 userdb = client.accounttesting.users
