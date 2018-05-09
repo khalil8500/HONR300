@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
-.w3-sidebar {
-  z-index: 3;
-  width: 250px;
-  top: 43px;
-  bottom: 0;
-  height: inherit;
-}
-</style>
-</head>
-<body><form method="post" action="{{url_for('login_attempt')}}">
-    Username <input type="text" name="username">
-    <br>
-    Password <input type="password" name="password">
-    <br>
-    <button type="submit">test button</button>
-</form>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!<link rel="icon" href="../../favicon.ico">
+		
+		<title>Login</title>
+		
+		<!-- Bootstrap core CSS -->
+		<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
-</body>
+		<!-- Custom styles for this template -->
+		<link href="css/signin.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<form method="post" action="{{url_for('login_attempt')}}">
+				<h2 class="form-signin-heading">Please sign in</h2>
+				<label for="username" class="sr-only">Username</label>
+				<input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+				<label for="password" class="sr-only">Password</label>
+				<input type="password" class="form-control" name="password" required placeholder="Password">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">test button</button>
+			</form>
+		</div>
+	</body>
 </html>
