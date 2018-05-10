@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, json, redirect, url_for, Response
 from __init__ import app, userdb, postdb
 from datetime import datetime
+from app import dashboard
 
 
 @app.route("/post", methods=["POST"])
