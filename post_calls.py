@@ -5,8 +5,8 @@ from datetime import datetime
 
 @app.route("/post", methods=["POST"])
 def post_attempt():
-
     form = dict(request.form)
+    return 200
 	'''
     if "text" in form and "anonymous" in form:
         text = form["text"][0]
@@ -25,7 +25,6 @@ def post_attempt():
             })
             return 200
 	'''
-    return 200
 
 
 @app.route("/posts", methods=["GET"])
