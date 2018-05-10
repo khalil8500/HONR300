@@ -56,7 +56,6 @@ def dashboard():
     if "username" not in session:
         return redirect(url_for("login_page"))
 		
-		
 	if request.method == 'POST':
 		form = dict(request.form)
 
@@ -75,7 +74,7 @@ def dashboard():
 					"date_posted": datetime.now(),
 					"anonymous": anonymous
 				})
-#asdasd
+	# asdasd
     # get the most recent 10 posts
     posts = []
     result = postdb.find().limit(10).sort('date_posted', pymongo.ASCENDING)
