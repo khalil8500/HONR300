@@ -7,6 +7,7 @@ import bson
 import datetime
 
 from user_calls import *
+from post_calls import *
 from __init__ import *
 
 @app.route("/")
