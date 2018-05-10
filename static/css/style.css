@@ -2,6 +2,7 @@ $blurred-img:"https://ei-squared.herokuapp.com/static/img/1920.jpg"
 
 body {
     height: 100%;
+    background-image: url($blurred-img);
 }
 
 html {
