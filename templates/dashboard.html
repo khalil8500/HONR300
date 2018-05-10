@@ -41,9 +41,11 @@
 			</form>
 			{% for post in posts %}
             <div class="text-center">
-                <p class="lead border">
-                   {{ post['post']['text'] }}
-                </p>
+                <span class="border-success">
+                    <p class="lead">
+                       {{ post['post']['text'] }}
+                    </p>
+                </span>
             </div>
 			<div>
 				{% for tag in post['tags'] %}
