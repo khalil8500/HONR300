@@ -60,7 +60,7 @@ def dashboard():
         form = dict(request.form)
     
         text = form["text"][0]
-        anonymous = form["anonymous"][0]
+        anonymous = request.form.get('anonymous')
         conf = "good"
         if text != "":
             for c in text:
