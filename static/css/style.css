@@ -37,6 +37,7 @@ body {
     position: fixed;
     left: 0;
     right: 0;
+    outline: 5px dotted green;
     margin-left: 20px;
     margin-right: 20px;
     z-index: 1;
