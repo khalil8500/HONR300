@@ -51,10 +51,30 @@ def make_comment():
     return render_template("comment.html")
 
 
-@app.route("/dashboard", methods=["GET"])
+@app.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
     if "username" not in session:
         return redirect(url_for("login_page"))
+		
+		
+	if request.method == 'POST':
+		form = dict(request.form)
+
+		if "text" in form and "anonymous" in form:
+			text = request.form.get("text")
+			anonymous = request.form.get("anonymous")
+
+			if text != "":
+				for c in text:
+					if ord(c) > 127:
+						return 400
+
+				postdb.insert_one({
+					"user_id": session["user_id"],
+					"text": text,
+					"date_posted": datetime.now(),
+					"anonymous": anonymous
+				})
 
     # get the most recent 10 posts
     posts = []
@@ -75,29 +95,6 @@ def dashboard():
             posts.append(post_entry)
 
     return render_template("dashboard.html", posts=posts)
-
-@app.route("/dashboard", methods=["POST"])
-def dashboard_post():
-
-	form = dict(request.form)
-
-	if "text" in form and "anonymous" in form:
-		text = request.form.get("text")
-		anonymous = request.form.get("anonymous")
-
-		if text != "":
-			for c in text:
-				if ord(c) > 127:
-					return 400
-
-			postdb.insert_one({
-				"user_id": session["user_id"],
-				"text": text,
-				"date_posted": datetime.now(),
-				"anonymous": anonymous
-			})
-
-	return redirect(url_for("dashboard",username=session["username"]))
 	
 
 if __name__ == "__main__":
