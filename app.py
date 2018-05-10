@@ -82,8 +82,8 @@ def dashboard_post():
 	form = dict(request.form)
 
 	if "text" in form and "anonymous" in form:
-		text = form["text"][0]
-		anonymous = form["anonymous"][0]
+		text = request.form.get("text")
+		anonymous = request.form.get("anonymous")
 
 		if text != "":
 			for c in text:
@@ -97,7 +97,7 @@ def dashboard_post():
 				"anonymous": anonymous
 			})
 
-	return redirect(url_for("dashboard"))
+	return redirect(url_for("dashboard",username=session["username"]))
 	
 
 if __name__ == "__main__":
