@@ -4,7 +4,7 @@
 from flask import Flask, render_template, request, session, json, redirect, url_for, Response
 import pymongo
 import bson
-import datetime
+from datetime import datetime
 
 from user_calls import *
 from post_calls import *
