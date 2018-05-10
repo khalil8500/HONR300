@@ -67,7 +67,7 @@ def dashboard():
                     if ord(c) > 127:
                         conf = "bad"
 
-			if(conf == "good"):            
+			if(conf == "good"):
                 postdb.insert_one({
                     "user_id": session["user_id"],
                     "text": text,
