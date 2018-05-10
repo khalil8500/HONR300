@@ -1,6 +1,6 @@
 .bg { 
     /* The image used */
-    background-image: url("../img/1920.jpg");
+    background-image: url("https://ei-squared.herokuapp.com/static/img/1920.jpg");
 
     /* Full height */
     height: 100%; 
