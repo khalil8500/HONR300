@@ -41,7 +41,7 @@
 			</form>
 			{% for post in posts %}
             <div class="text-center">
-                <p>
+                <p class="lead">
                    {{ post['post']['text'] }}
                 </p>
             </div>
@@ -52,7 +52,7 @@
 					{% endif %}
 				{% endfor %}
 			</div>
-            <div class="row">
+            <div class="row center">
                     <button class="btn btn-secondary btn-sm">Tag this post</button>
                     <button class="btn btn-secondary btn-sm">Reply to this post</button>
             </div>
