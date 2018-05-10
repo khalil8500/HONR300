@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, json, redirect, url_
 from __init__ import app, userdb, postdb
 from datetime import datetime
 
-
+'''
 @app.route("/post", methods=["POST"])
 def post_attempt():
 
@@ -29,7 +29,6 @@ def post_attempt():
 	
 	return 400
 
-'''
 @app.route("/posts", methods=["GET"])
 def get_posts():
 

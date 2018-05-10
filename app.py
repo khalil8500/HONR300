@@ -56,7 +56,8 @@ def dashboard():
     if "username" not in session:
         return redirect(url_for("login_page"))
 	
-	
+	if request.method == 'POST':
+        posts = []
 		
 	# asdasd
     # get the most recent 10 posts
