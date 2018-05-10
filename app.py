@@ -4,7 +4,7 @@
 from flask import Flask, render_template, request, session, json, redirect, url_for, Response
 import pymongo
 import bson
-import datetime
+from datetime import datetime as dt
 
 from user_calls import *
 from post_calls import *
@@ -55,27 +55,27 @@ def make_comment():
 def dashboard():
     if "username" not in session:
         return redirect(url_for("login_page"))
-		
-		
-	if request.method == 'POST':
-		form = dict(request.form)
-
-		if "text" in form and "anonymous" in form:
-			text = request.form.get("text")
-			anonymous = request.form.get("anonymous")
-
-			if text != "":
-				for c in text:
-					if ord(c) > 127:
-						return 400
-
-				postdb.insert_one({
-					"user_id": session["user_id"],
-					"text": text,
-					"date_posted": datetime.now(),
-					"anonymous": anonymous
-				})
-
+        
+    if request.method == "POST":
+        form = dict(request.form)
+    
+        text = form["text"][0]
+        anonymous = request.form.get('anonymous')
+        conf = "good"
+        if text != "":
+            for c in text:
+                if ord(c) > 127:
+                    conf = "bad"
+                
+            if conf == "good":
+                postdb.insert_one({
+                    "user_id": session["user_id"],
+                    "text": text,
+                    "date_posted": dt.now(),
+                    "anonymous": anonymous
+                })
+	
+    # asdasd
     # get the most recent 10 posts
     posts = []
     result = postdb.find().limit(10).sort('date_posted', pymongo.ASCENDING)
@@ -83,8 +83,8 @@ def dashboard():
         for post in result:
             post_entry = {
                 "post": post,
-                "tags": list(tagdb.find({"post_id": post["id"]}).limit(10)),
-                "comments": list(commentdb.find({"post_id": post["id"]}).limit(10))
+                "tags": list(tagdb.find({"post_id": post["_id"]}).limit(10)),
+                "comments": list(commentdb.find({"post_id": post["_id"]}).limit(10))
             }
             # add in tags for those comments
             if post_entry["comments"]:

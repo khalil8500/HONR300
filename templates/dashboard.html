@@ -11,66 +11,72 @@
 		<link rel="stylesheet" href="../static/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 		<link href="../static/css/blog.css" rel="stylesheet">
+        <link href="../static/css/style.css" rel="stylesheet">
 	</head>
 	<body class="text-center" style>
-		<div class="container">
-			<header class="blog-header py-3">
-				<div class="row flex-nowrap justify-content-between align-items-center">
-				  <div class="col-4 pt-1">
-					<a class="text-muted" href="#">Subscribe</a>
-				  </div>
-				  <div class="col-4 text-center">
-					<a class="blog-header-logo text-dark" href="#">Dashboard</a>
-				  </div>
-				  <div class="col-4 d-flex justify-content-end align-items-center">
-					<!--- <a class="text-muted" href="#">
-					  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
-					</a>--->
-					<a class="btn btn-sm btn-outline-secondary" href="/logout">Sign out</a>
-				  </div>
-				</div>
-			</header>
-			<form method="post" action="{{url_for('dashboard')}}">
-				<textarea class="form-control" name="text" placeholder="Think deeply!" required autofocus>
-				<div class="checkbox">
-				  <label>
-					<input type="checkbox" name="anonymous" value="true"> Anonymous?
-				  </label>
-				</div>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-			</form>
-			{% for post in posts %}
-			<div>
-				{% for tag in post['tags'] %}
-					{% if 'post_id' in tag %}
-						<span>tag['text'></span>
-					{% endif %}
-				{% endfor %}
-			</div>
-			<p>
-				<button>tag this post</button>
-			</p>
-			<p>
-				<button>reply to this post</button>
-			</p>
-			<div>
-				{% for comment in post['comments'] %}
-					<div id="{{comment['id']}}">
-						{{comment['text']}}
-						<div>
-						{% for tag in post['tags'] %}
-							{% if 'comment_id' in tag and tag['comment_id']==comment['id'] %}
-								<span>tag['text']</span>
-							{% endif %}
-						{% endfor %}
-						</div>
-						<p>
-							<button>tag this comment</button>
-						</p>
-					</div>
-				{% endfor %}
-			</div>
-			{% endfor %}
+		<header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+              <div class="col-4 pt-1">
+                <a class="text-muted" href="#">EI-Squared</a>
+              </div>
+              <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark" href="#">Dashboard</a>
+              </div>
+              <div class="col-4 d-flex justify-content-end align-items-center">
+                <!--- <a class="text-muted" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+                </a>--->
+                <a class="btn btn-sm btn-outline-secondary" href="/logout">Sign out</a>
+              </div>
+            </div>
+        </header>
+        <div class="container content">
+            <form method="post" action="{{url_for('dashboard')}}">
+                <textarea class="form-control" name="text" placeholder="Think deeply!" required autofocus>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="anonymous" value="true"> Anonymous?
+                  </label>
+                </div>
+                <button class="btn btn-lg btn-secondary" type="submit">Submit</button>
+            </form>
+            {% for post in posts %}
+            <div class="row">
+                    <p class="post">{{ post['post']['text'] }}</p>
+            </div>
+            <div class="row">
+                {% for tag in post['tags'] %}
+                    {% if 'post_id' in tag %}
+                        <span>{{ tag['text'] }}</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="btn-group col-4" role="group" aria-label="Basic example">
+                        <button class="btn btn-secondary btn-sm">Tag this post</button>
+                        <button class="btn btn-secondary btn-sm">Reply to this post</button>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                {% for comment in post['comments'] %}
+                    <div id="{{comment['id']}}">
+                        {{comment['text']}}
+                        <div>
+                        {% for tag in post['tags'] %}
+                            {% if 'comment_id' in tag and tag['comment_id']==comment['id'] %}
+                                <span>{{tag['text']}}</span>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        <p>
+                            <button class="btn btn-secondary btn-sm btn-block">Tag this comment</button>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
 		</div>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

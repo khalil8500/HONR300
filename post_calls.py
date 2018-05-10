@@ -2,13 +2,13 @@ from flask import Flask, render_template, request, session, json, redirect, url_
 from __init__ import app, userdb, postdb
 from datetime import datetime
 
-
+'''
 @app.route("/post", methods=["POST"])
 def post_attempt():
 
 	form = dict(request.form)
 
-	'''
+	
 	if "text" in form and "anonymous" in form:
 		text = form["text"][0]
 		anonymous = form["anonymous"][0]
@@ -25,11 +25,10 @@ def post_attempt():
 				"anonymous": anonymous
 			})
 			return 200
-	'''
 	
-	return 200
+	
+	return 400
 
-'''
 @app.route("/posts", methods=["GET"])
 def get_posts():
 
