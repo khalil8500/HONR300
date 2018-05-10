@@ -4,11 +4,10 @@ from datetime import datetime
 
 
 @app.route("/post", methods=["POST"])
-@app.route("/dashboard", methods=["POST"])
 def post_attempt():
 
     form = dict(request.form)
-
+'''
     if "text" in form and "anonymous" in form:
         text = form["text"][0]
         anonymous = form["anonymous"][0]
@@ -23,8 +22,8 @@ def post_attempt():
                 "text": text,
                 "date_posted": datetime.now(),
                 "anonymous": anonymous
-            })
-            return 200
+            })'''
+    return 200
 
     return 400
 
