@@ -4,8 +4,8 @@ from datetime import datetime
 
 
 @app.route("/post", methods=["POST"])
-@app.route("/dashboard", methods=["POST"])
 def post_attempt():
+
 	form = dict(request.form)
 
 	'''
@@ -29,7 +29,7 @@ def post_attempt():
 	
 	return 200
 
-
+'''
 @app.route("/posts", methods=["GET"])
 def get_posts():
 
@@ -50,4 +50,5 @@ def get_post(post_id):
         return list(result)[0]
 
     return 400
+'''
 
