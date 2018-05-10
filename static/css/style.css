@@ -19,6 +19,7 @@ html {
     margin: auto;
     border-radius: 25px;
     width: 50%;
+	background-color: gray;
     padding: 10px;
     z-index: 1;
   }
