@@ -65,7 +65,7 @@ def register_attempt():
         # validate and make sure it's not in the userdb already
         if validate_username(username) and validate_password(password) and len(list(userdb.find({"username": username}))) == 0:
             userdb.insert_one({"username": username, "password": password})
-            return redirect(url_for('login'))
+            return redirect(url_for('login_page'))
 
     return redirect(url_for('register_page'))
 
