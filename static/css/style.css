@@ -5,7 +5,6 @@ body, html {
 }
 
 .blurred-bg{
-
 	background-image:url($blurred-img);
 	background-repeat:no-repeat;
 	@include background-size(cover);
