@@ -57,11 +57,23 @@ def dashboard():
         return redirect(url_for("login_page"))
         
     if request.method == "POST":
+        form = dict(request.form)
+    
         text = form["text"][0]
         anonymous = form["anonymous"][0]
         conf = "good"
         if text != "":
-            return
+            for c in text:
+                if ord(c) > 127:
+                    conf = "bad"
+                
+            if conf == "good":
+                postdb.insert_one({
+                    "user_id": session["user_id"],
+                    "text": text,
+                    "date_posted": datetime.now(),
+                    "anonymous": anonymous
+                })
 	
     # asdasd
     # get the most recent 10 posts
