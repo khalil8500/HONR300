@@ -30,7 +30,7 @@
               </div>
             </div>
         </header>
-        <div class="container content">
+        <div class="container content row">
             <form method="post" action="{{url_for('dashboard')}}">
                 <input type="text" class="form-control" name="text" placeholder="Think deeply!" required autofocus>
                 <div class="checkbox">
@@ -40,6 +40,8 @@
                 </div>
                 <button class="btn btn-lg btn-secondary" type="submit">Submit</button>
             </form>
+        </div>
+        <div class="container content row">
             {% for post in posts %}
             <div class="row text-center">
                     <p class="post">{{ post['post']['text'] }}</p>
