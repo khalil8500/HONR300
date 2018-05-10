@@ -75,7 +75,7 @@ def dashboard():
 					"date_posted": datetime.now(),
 					"anonymous": anonymous
 				})
-
+#asdasd
     # get the most recent 10 posts
     posts = []
     result = postdb.find().limit(10).sort('date_posted', pymongo.ASCENDING)
