@@ -52,12 +52,12 @@
 					{% endif %}
 				{% endfor %}
 			</div>
-			<p>
-				<button class="btn btn-lg btn-primary btn-block">tag this post</button>
-			</p>
-			<p>
-				<button class="btn btn-lg btn-primary btn-block">reply to this post</button>
-			</p>
+            <div class="row">
+                <p>
+                    <button class="btn btn-secondary btn-sm btn-block">tag this post</button>
+                    <button class="btn btn-secondary btn-sm btn-block">reply to this post</button>
+                </p>
+            </div>
 			<div>
 				{% for comment in post['comments'] %}
 					<div id="{{comment['id']}}">
@@ -70,7 +70,7 @@
 						{% endfor %}
 						</div>
 						<p>
-							<button class="btn btn-lg btn-primary btn-block">tag this comment</button>
+							<button class="btn btn-secondary btn-sm btn-block">tag this comment</button>
 						</p>
 					</div>
 				{% endfor %}
