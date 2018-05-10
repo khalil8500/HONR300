@@ -1,7 +1,12 @@
 $blurred-img:"https://ei-squared.herokuapp.com/static/img/1920.jpg"
 
-body, html {
+html {
     height: 100%;
+}
+
+body {
+    height: 100%;
+    background-image: url("https://ei-squared.herokuapp.com/static/img/1920.jpg");
 }
 
 .bg { 
