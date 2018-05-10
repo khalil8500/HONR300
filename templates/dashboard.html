@@ -30,6 +30,15 @@
 				  </div>
 				</div>
 			</header>
+			<form method="post" action="{{url_for('post')}}">
+				<input type="text" class="form-control" name="text" placeholder="Think deeply!" required autofocus>
+				<div class="checkbox">
+				  <label>
+					<input type="checkbox" value="anonymous"> Anonymous?
+				  </label>
+				</div>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			</form>
 			{% for post in posts %}
 			<div>
 				{% for tag in post['tags'] %}
