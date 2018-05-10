@@ -55,9 +55,8 @@ def make_comment():
 def dashboard():
     if "username" not in session:
         return redirect(url_for("login_page"))
-		
-	if request.method == 'POST':
 	
+	if request.method == 'POST':
 		if "text" in form and "anonymous" in form:
 			text = form["text"][0]
 			anonymous = form["anonymous"][0]
