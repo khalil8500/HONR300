@@ -7,7 +7,7 @@ from datetime import datetime
 def post_attempt():
 
     form = dict(request.form)
-'''
+''''
     if "text" in form and "anonymous" in form:
         text = form["text"][0]
         anonymous = form["anonymous"][0]
@@ -22,10 +22,10 @@ def post_attempt():
                 "text": text,
                 "date_posted": datetime.now(),
                 "anonymous": anonymous
-            })'''
+            })
+            return 200
+'''
     return 200
-
-    return 400
 
 
 @app.route("/posts", methods=["GET"])
