@@ -28,6 +28,7 @@ body, html {
 
 .content{
     margin: auto;
+    opacity: 65;
     position: fixed;
     left: 0;
     right: 0;
