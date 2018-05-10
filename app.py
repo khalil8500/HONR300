@@ -80,12 +80,12 @@ def dashboard():
 def dashboard_post():
 
 	form = dict(request.form)
-	
+
 	if "text" in form and "anonymous" in form:
 		text = form["text"][0]
 		anonymous = form["anonymous"][0]
 
-        if (anonymous == "True" or anonymous == "False") and text != "":
+		if text != "":
 			for c in text:
 				if ord(c) > 127:
 					return 400
@@ -96,7 +96,7 @@ def dashboard_post():
 				"date_posted": datetime.now(),
 				"anonymous": anonymous
 			})
-	
+
 	return redirect(url_for("dashboard"))
 	
 
