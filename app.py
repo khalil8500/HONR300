@@ -4,7 +4,7 @@
 from flask import Flask, render_template, request, session, json, redirect, url_for, Response
 import pymongo
 import bson
-from datetime import datetime
+from datetime import datetime as dt
 
 from user_calls import *
 from post_calls import *
@@ -71,7 +71,7 @@ def dashboard():
                 postdb.insert_one({
                     "user_id": session["user_id"],
                     "text": text,
-                    "date_posted": datetime.now(),
+                    "date_posted": dt.now(),
                     "anonymous": anonymous
                 })
 	
