@@ -56,6 +56,23 @@ def dashboard():
     if "username" not in session:
         return redirect(url_for("login_page"))
 		
+	if request.method == 'POST':
+		if "text" in form and "anonymous" in form:
+			text = form["text"][0]
+			anonymous = form["anonymous"][0]
+			
+		if (anonymous == "True" or anonymous == "False") and text != "":
+			for c in text:
+				if ord(c) > 127:
+					return 400
+			
+			postdb.insert_one({
+				"user_id": session["user_id"],
+				"text": text,
+				"date_posted": datetime.now(),
+				"anonymous": anonymous
+				})
+		
 	# asdasd
     # get the most recent 10 posts
     posts = []
