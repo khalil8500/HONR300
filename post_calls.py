@@ -4,6 +4,7 @@ from datetime import datetime
 
 
 @app.route("/post", methods=["POST"])
+@app.route("/dashboard", methods=["POST"])
 def post_attempt():
 
     form = dict(request.form)
