@@ -29,6 +29,31 @@ def post_attempt():
 	
 	return 200
 
+	
+@app.route("/dashboard", methods=["POST"])
+def dashboard_post():
+
+	form = dict(request.form)
+	
+	if "text" in form and "anonymous" in form:
+		text = form["text"][0]
+		anonymous = form["anonymous"][0]
+
+        if (anonymous == "True" or anonymous == "False") and text != "":
+			for c in text:
+				if ord(c) > 127:
+					return 400
+
+			postdb.insert_one({
+				"user_id": session["user_id"],
+				"text": text,
+				"date_posted": datetime.now(),
+				"anonymous": anonymous
+			})
+	
+	return redirect(url_for("dashboard"))
+
+	
 '''
 @app.route("/posts", methods=["GET"])
 def get_posts():
