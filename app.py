@@ -83,8 +83,8 @@ def dashboard():
         for post in result:
             post_entry = {
                 "post": post,
-                "tags": list(tagdb.find({"post_id": post["id"]}).limit(10)),
-                "comments": list(commentdb.find({"post_id": post["id"]}).limit(10))
+                "tags": list(tagdb.find({"post_id": post["_id"]}).limit(10)),
+                "comments": list(commentdb.find({"post_id": post["_id"]}).limit(10))
             }
             # add in tags for those comments
             if post_entry["comments"]:
