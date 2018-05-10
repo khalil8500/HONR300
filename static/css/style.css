@@ -9,9 +9,8 @@ html {
 }
 
 .post{
-    background: #888;
+    border-radius: 25px;
     width: 100%;
-    color: green;
 }
 
 .text-center{
@@ -20,6 +19,8 @@ html {
 
 .content{
     margin: auto;
+    border-radius: 25px;
+    background: gray;
     width: 50%;
     padding: 10px;
     z-index: 1;
