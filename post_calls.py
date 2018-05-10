@@ -7,7 +7,7 @@ from datetime import datetime
 def post_attempt():
 
     form = dict(request.form)
-	''''
+	'''
     if "text" in form and "anonymous" in form:
         text = form["text"][0]
         anonymous = form["anonymous"][0]
