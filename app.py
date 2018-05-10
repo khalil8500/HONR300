@@ -55,6 +55,9 @@ def make_comment():
 def dashboard():
     if "username" not in session:
         return redirect(url_for("login_page"))
+        
+    if request.method == "POST":
+        return
 	
     # asdasd
     # get the most recent 10 posts
